@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <com.google.android.material.card.MaterialCardView
@@ -43,7 +43,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/alamat_marga"
-            android:layout_marginTop="55dp"
+            android:fontFamily="@font/freesans"
+            android:layout_marginTop="48dp"
+            android:textSize="13.8sp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="15dp"/>
 
@@ -66,7 +68,7 @@
             android:backgroundTint="@color/primary"
             app:cardCornerRadius="20dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="95dp">
 
             <TextView
                 android:layout_width="match_parent"

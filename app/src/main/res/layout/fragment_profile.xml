@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,10 +23,28 @@
                 android:id="@+id/topBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="start"
                 android:background="@color/primary"
                 app:menu="@menu/home_menu"
-                app:title="Profile Page"
-                app:titleTextColor="@color/white" />
+                app:titleTextColor="@color/white">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/appmarga" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profie Page"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/freesansb"
+                    android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry" />
+
+
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -43,8 +61,8 @@
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="170dp"
-            app:cardCornerRadius="150dp"
             android:elevation="2dp"
+            app:cardCornerRadius="150dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -52,11 +70,11 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 app:lottie_autoPlay="true"
-                app:lottie_rawRes="@raw/profile"
-                app:lottie_speed="0.6"
                 app:lottie_loop="true"
-                android:background="@color/white"/>
+                app:lottie_rawRes="@raw/profile"
+                app:lottie_speed="0.6" />
         </androidx.cardview.widget.CardView>
 
 
@@ -79,8 +97,8 @@
                 android:layout_marginTop="110dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/freesansb"
                 tools:text="@string/username" />
-
 
 
             <TextView
@@ -90,8 +108,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="140dp"
                 android:textSize="18sp"
+                android:fontFamily="@font/freesans"
                 tools:text="@string/email" />
-
 
 
             <TextView
@@ -101,6 +119,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="170dp"
                 android:textSize="18sp"
+                android:fontFamily="@font/freesans"
                 tools:text="@string/telephone" />
 
 
@@ -111,8 +130,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="200dp"
                 android:textSize="18sp"
+                android:fontFamily="@font/freesans"
                 tools:text="@string/role" />
-
 
 
         </com.google.android.material.card.MaterialCardView>

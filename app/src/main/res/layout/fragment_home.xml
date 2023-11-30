@@ -20,8 +20,24 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
             app:menu="@menu/home_menu"
-            app:title="Home Page"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/appmarga" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home Page"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:fontFamily="@font/freesansb"
+                android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

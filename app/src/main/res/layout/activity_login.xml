@@ -55,6 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
+                    android:fontFamily="@font/freesans"
                     android:inputType="textPersonName" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -77,6 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
+                    android:fontFamily="@font/freesans"
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -90,6 +92,7 @@
                 android:layout_marginEnd="8dp"
                 android:enabled="false"
                 android:text="Login"
+                android:fontFamily="@font/freesansb"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passlog_lay" />
@@ -107,6 +110,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/freesans"
                     android:text="Belum punya akun?"
                     android:textColor="@color/black" />
 
@@ -115,6 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="1dp"
+                    android:fontFamily="@font/freesansb"
                     android:text="SignUp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
