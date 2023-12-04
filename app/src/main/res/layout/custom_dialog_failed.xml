@@ -38,7 +38,7 @@
             android:id="@+id/btn_gagal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_next"
+            android:src="@drawable/ic_close"
             android:backgroundTint="@color/white"
             android:scaleX="2"
             android:scaleY="2"

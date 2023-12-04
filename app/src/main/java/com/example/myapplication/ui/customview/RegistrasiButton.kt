@@ -35,9 +35,10 @@ class RegistrasiButton : AppCompatButton {
         super.onDraw(canvas)
 
         background = if (isEnabled) enabledBackground else disabledBackground
-        text = if (isEnabled) "SignUp" else "Isi dulu"
+        text = if (isEnabled) "Sign Up" else "Isi dulu"
         textSize = 18f
         setTextColor(txtColor)
+
     }
 
     private fun init(){

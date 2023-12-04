@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">MARGAJAYA</string>
     <string name="login_title">SignIn</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -13,6 +13,7 @@
     <string name="rating_marga">4.4</string>
     <string name="jam_marga">08:00 - 23:00 WIB</string>
     <string name="location">Location</string>
+    <string name="admin">Admin</string>
     <string name="home">Home</string>
     <string name="histori">History</string>
     <string name="profil">Profile</string>

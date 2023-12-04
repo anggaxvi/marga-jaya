@@ -79,6 +79,12 @@ class ProfileFragment : Fragment() {
                     else -> false
                 }
             }
+
+
+            binding.btnLogout.setOnClickListener {
+                pref.clearToken()
+                startActivity(Intent(requireContext(),LoginActivity::class.java))
+            }
         }
 
         return binding.root

@@ -5,10 +5,11 @@ import androidx.lifecycle.liveData
 import com.example.myapplication.data.api.ServiceApi
 import com.example.myapplication.data.model.LoginModel
 import com.example.myapplication.data.model.RegisterModel
+import com.example.myapplication.data.response.GetLapResponse
 import com.example.myapplication.data.response.LoginResponse
 import com.example.myapplication.data.response.ProfileResponse
 import com.example.myapplication.data.response.RegisterResponse
-import java.lang.Exception
+import kotlin.Exception
 
 class Repository(private val serviceApi: ServiceApi) {
     fun userRegister(name : String,email : String,password : String,no_telp : String,confirm_password : String):LiveData<FetchResult<RegisterResponse>> = liveData{
@@ -52,6 +53,18 @@ class Repository(private val serviceApi: ServiceApi) {
         emit(FetchResult.Loading)
         try {
             val bodyResponse = serviceApi.getProfile()
+            emit(FetchResult.Success(bodyResponse))
+
+        }catch (diskIO:Exception){
+            emit(FetchResult.Error(diskIO.message.toString()))
+        }
+    }
+
+
+    fun getLapangan(tanggal:String):LiveData<FetchResult<GetLapResponse>> = liveData {
+        emit(FetchResult.Loading)
+        try {
+            val bodyResponse = serviceApi.getLapangan(tanggal)
             emit(FetchResult.Success(bodyResponse))
 
         }catch (diskIO:Exception){

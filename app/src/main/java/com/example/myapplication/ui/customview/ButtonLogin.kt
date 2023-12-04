@@ -35,7 +35,7 @@ class ButtonLogin : AppCompatButton {
         super.onDraw(canvas)
 
         background = if (isEnabled) enabledBackground else disabledBackground
-        text = if (isEnabled) "SignIn" else "Isi dulu"
+        text = if (isEnabled) "Sign In" else "Isi dulu"
         textSize = 18f
         setTextColor(txtColor)
     }

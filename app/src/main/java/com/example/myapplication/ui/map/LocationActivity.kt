@@ -44,6 +44,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
+        mMap.setPadding(2,2,2,440)
 
         mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
 
