@@ -2,6 +2,7 @@ package com.example.myapplication.ui.fragment
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -76,6 +77,16 @@ class ProfileFragment : Fragment() {
                         true
                     }
 
+
+                    R.id.admin -> {
+                        val nomorWA = "+6285173209431"
+                        val pesanWa =
+                            "Hallo min,maaf mengganggu waktunya saya ingin merubah jadwal booking saya.Terima Kasih :)"
+                        aapInstallOrNot(nomorWA, pesanWa)
+
+                        true
+                    }
+
                     else -> false
                 }
             }
@@ -108,6 +119,29 @@ class ProfileFragment : Fragment() {
         binding.emailProfile.text = email
         binding.telpProfile.text = telp
 //        binding.roleProfile.text = role
+
+    }
+
+    private fun aapInstallOrNot(nomor: String, pesan: String) {
+//        val uri = Uri.parse("smsto:$nomor")
+//        val intent = Intent(Intent.ACTION_SENDTO,uri)
+//        intent.setPackage("com.whatsapp")
+
+        val url = "https://api.whatsapp.com/send?phone=$nomor\"+\"&text=$pesan"
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.setData(Uri.parse(url))
+
+//        intent.putExtra(Intent.EXTRA_TEXT,pesan)
+
+
+        try {
+            startActivity(intent)
+
+        } catch (e: Exception) {
+            val playStoreIntent = Intent(Intent.ACTION_VIEW)
+            playStoreIntent.data = Uri.parse("market://details?id=com.whatsapp")
+            startActivity(playStoreIntent)
+        }
 
     }
 

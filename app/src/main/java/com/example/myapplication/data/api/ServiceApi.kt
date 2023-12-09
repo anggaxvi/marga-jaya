@@ -2,6 +2,7 @@ package com.example.myapplication.data.api
 
 import com.example.myapplication.data.model.LoginModel
 import com.example.myapplication.data.model.RegisterModel
+import com.example.myapplication.data.response.GetLapByIdResponse
 import com.example.myapplication.data.response.GetLapResponse
 import com.example.myapplication.data.response.LoginResponse
 import com.example.myapplication.data.response.ProfileResponse
@@ -10,6 +11,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ServiceApi {
@@ -34,4 +36,10 @@ interface ServiceApi {
     suspend fun getLapangan(
         @Query("tanggal") tanggal : String
     ):GetLapResponse
+
+    @GET("lapangan/{id}")
+    suspend fun getLapById(
+        @Path("id") id : String,
+        @Query("tanggal") tanggal: String
+    ):GetLapByIdResponse
 }

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgmarga"
+    tools:context=".ui.bukti.BuktiActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            app:menu="@menu/home_menu"
+            app:titleTextColor="@color/white">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/appmarga" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/freesansb"
+                android:text="Bukti"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BUKTI SEWA"
+            android:fontFamily="@font/graves"
+            android:textSize="45sp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/success"
+            app:lottie_speed="1.25" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="230dp"
+            android:fontFamily="@font/freesansb"
+            android:text="JENIS LAPANGAN"
+            android:textColor="@color/grey_font"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/tv_jenbukti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="227dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesansb"
+            android:text="Lapangan 1"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="270dp"
+            android:fontFamily="@font/freesansb"
+            android:text="JAM ATAU SESI"
+            android:textColor="@color/grey_font"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/tv_jambukti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="267dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesansb"
+            android:text="@string/jam_marga"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="310dp"
+            android:fontFamily="@font/freesansb"
+            android:text="HARI,TANGGAL"
+            android:textColor="@color/grey_font"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/tv_haribukti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="307dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesansb"
+            android:text="Sat 03 Dec 2023"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="350dp"
+            android:fontFamily="@font/freesansb"
+            android:text="HARGA LAPANGAN"
+            android:textColor="@color/grey_font"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/tv_hargabukti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="347dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesansb"
+            android:text="Rp.40.000/sesi"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="390dp"
+            android:fontFamily="@font/freesansb"
+            android:text="HARI PESAN"
+            android:textColor="@color/grey_font"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/tv_waktupesanbukti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="387dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesansb"
+            android:text="03 Dec 2024,13:40"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="445dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesans"
+            android:text="@string/nb"
+            android:textColor="@color/grey_font"
+            android:textSize="10sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="472dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/freesans"
+            android:text="@string/nb2"
+            android:textColor="@color/grey_font"
+            android:textSize="10sp"
+            android:textStyle="italic" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

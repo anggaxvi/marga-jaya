@@ -60,14 +60,14 @@
         <androidx.cardview.widget.CardView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginBottom="230dp"
             android:elevation="2dp"
             app:cardCornerRadius="150dp"
-            android:layout_marginBottom="230dp"
             app:layout_constraintBottom_toBottomOf="@+id/materialCardView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/view">
 
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="match_parent"
@@ -87,8 +87,10 @@
             android:elevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintVertical_bias="0.498">
 
 
             <TextView
@@ -97,9 +99,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="110dp"
+                android:fontFamily="@font/freesansb"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/freesansb"
                 tools:text="@string/username" />
 
 
@@ -109,8 +111,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="140dp"
-                android:textSize="18sp"
                 android:fontFamily="@font/freesans"
+                android:textSize="18sp"
                 tools:text="@string/email" />
 
 
@@ -120,8 +122,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="170dp"
-                android:textSize="18sp"
                 android:fontFamily="@font/freesans"
+                android:textSize="18sp"
                 tools:text="@string/telephone" />
 
 
@@ -131,8 +133,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="200dp"
-                android:textSize="18sp"
                 android:fontFamily="@font/freesans"
+                android:textSize="18sp"
                 tools:text="@string/role" />
 
 
@@ -140,16 +142,14 @@
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LOG OUT"
-                android:layout_marginTop="240dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="240dp"
                 android:layout_marginEnd="20dp"
-                app:cornerRadius="8dp"
-                />
+                android:text="LOG OUT"
+                app:cornerRadius="8dp" />
 
 
         </com.google.android.material.card.MaterialCardView>
-
 
         <ProgressBar
             android:id="@+id/progressBar"

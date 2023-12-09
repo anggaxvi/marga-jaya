@@ -13,7 +13,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.data.FetchResult
@@ -23,6 +25,8 @@ import com.example.myapplication.data.response.LapanganItem
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.ui.Factory
 import com.example.myapplication.ui.auth.LoginActivity
+import com.example.myapplication.ui.detail.DeatailFragment
+import com.example.myapplication.ui.detail.DetailActivity
 import com.example.myapplication.ui.home.HomeAdapter
 import com.example.myapplication.ui.home.HomeViewModel
 import com.example.myapplication.ui.map.LocationActivity
@@ -38,16 +42,23 @@ class HomeFragment : Fragment() {
     private lateinit var pref: Preferences
     private lateinit var recentDate: String
     private lateinit var homeAdapter: HomeAdapter
-    private lateinit var upDate : String
+    private lateinit var upDate: String
     private val calendar = Calendar.getInstance()
-    private var  pickerDate: String? = null
+    private var pickerDate: String? = null
     private val homeViewModel: HomeViewModel by viewModels { Factory(requireContext()) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
 
         val layoutManager = LinearLayoutManager(requireContext())
         binding.rvHomefrag.layoutManager = layoutManager
@@ -58,26 +69,19 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             requireActivity().finish()
         } else {
-            val email = pref.getEmail()
-            AlertDialog.Builder(requireActivity()).apply {
-                setTitle("Hallo")
-                setMessage("${email}")
-                setNegativeButton("Oke", null)
-                create()
-                show()
-            }
-
+          
             getDate()
             binding.btnDate.setOnClickListener {
                 getDatePicker()
             }
 
-            if (pickerDate != null){
+            if (pickerDate != null) {
                 upDate = pickerDate!!
 
-            }else{
+            } else {
                 upDate = recentDate
             }
+
 
             homeViewModel.getLapangan(upDate).observe(viewLifecycleOwner) {
                 if (it != null) {
@@ -131,41 +135,12 @@ class HomeFragment : Fragment() {
             }
 
 
-//            binding.btnDate.setOnClickListener {
-//                getDate()
-//
-//                binding.date.text = resultDate
-//            }
         }
+
+
         return binding.root
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        homeViewModel.getLapangan(upDate).observe(viewLifecycleOwner) {
-            if (it != null) {
-                when (it) {
-                    is FetchResult.Loading -> {
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
-
-                    is FetchResult.Success -> {
-                        binding.progressBar.visibility = View.GONE
-                        setData(it.data.data?.lapangan)
-
-                    }
-
-                    is FetchResult.Error -> {
-                        binding.progressBar.visibility = View.GONE
-                        Toast.makeText(requireContext(), "Gagal", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-
-        }
-
-    }
 
     private fun getDate() {
         //""dd,MMM yyyy"
@@ -175,7 +150,6 @@ class HomeFragment : Fragment() {
         val sformat = SimpleDateFormat("EEE MMM dd yyyy", Locale.getDefault())
         var date = Date()
         recentDate = sformat.format(date)
-
 
 
     }
@@ -188,6 +162,30 @@ class HomeFragment : Fragment() {
                 val dateFormate = SimpleDateFormat("EEE MMM dd yyyy", Locale.getDefault())
                 val result = dateFormate.format(selectedData.time)
                 pickerDate = result.toString()
+//                binding.edtDatepicker.text = pickerDate.toString()
+
+                homeViewModel.getLapangan(pickerDate.toString()).observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        when (it) {
+                            is FetchResult.Loading -> {
+                                binding.progressBar.visibility = View.VISIBLE
+                            }
+
+                            is FetchResult.Success -> {
+                                binding.progressBar.visibility = View.GONE
+                                setData(it.data.data?.lapangan)
+
+                            }
+
+                            is FetchResult.Error -> {
+                                binding.progressBar.visibility = View.GONE
+                                Toast.makeText(requireContext(), "Gagal", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+
+                }
+
 
             },
             calendar.get(android.icu.util.Calendar.YEAR),
@@ -195,14 +193,24 @@ class HomeFragment : Fragment() {
             calendar.get(android.icu.util.Calendar.DAY_OF_MONTH)
         )
         datePickerDialog.show()
+
     }
 
-    fun setData(data: List<LapanganItem?>?) {
+    fun setData(lapangan: List<LapanganItem?>?) {
         homeAdapter = HomeAdapter()
-        homeAdapter.submitList(data)
+        homeAdapter.submitList(lapangan)
         binding.rvHomefrag.adapter = homeAdapter
+        homeAdapter.setItemClickAdapter(object : HomeAdapter.OnItemClickAdapter {
+            override fun onItemClick(data: LapanganItem) {
+                val i = Intent(requireContext(), DetailActivity::class.java)
+                i.putExtra(DetailActivity.EXTRA_ID, data.id)
+                i.putExtra(DetailActivity.EXTRA_TGL, upDate)
+                startActivity(i)
 
 
+            }
+
+        })
     }
 
     private fun aapInstallOrNot(nomor: String, pesan: String) {

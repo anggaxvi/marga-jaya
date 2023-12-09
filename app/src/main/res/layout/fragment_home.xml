@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -30,20 +30,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/freesansb"
                 android:text="Home"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:fontFamily="@font/freesansb"
-                android:layout_marginStart="30dp"
                 tools:ignore="RtlSymmetry" />
 
             <ImageButton
                 android:id="@+id/btn_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_calendar"
+                android:layout_gravity="end"
                 android:background="@color/primary"
-                android:layout_gravity="end"/>
+                android:src="@drawable/ic_calendar" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -59,36 +59,17 @@
             android:id="@+id/rv_homefrag"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_home"/>
+            tools:listitem="@layout/item_home" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/date"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="32dp"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/btn_date"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            tools:text="Date" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_date"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="date"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/rv_homefrag"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/rv_homefrag"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
 

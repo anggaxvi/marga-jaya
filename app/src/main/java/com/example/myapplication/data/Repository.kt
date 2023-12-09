@@ -5,6 +5,7 @@ import androidx.lifecycle.liveData
 import com.example.myapplication.data.api.ServiceApi
 import com.example.myapplication.data.model.LoginModel
 import com.example.myapplication.data.model.RegisterModel
+import com.example.myapplication.data.response.GetLapByIdResponse
 import com.example.myapplication.data.response.GetLapResponse
 import com.example.myapplication.data.response.LoginResponse
 import com.example.myapplication.data.response.ProfileResponse
@@ -65,6 +66,17 @@ class Repository(private val serviceApi: ServiceApi) {
         emit(FetchResult.Loading)
         try {
             val bodyResponse = serviceApi.getLapangan(tanggal)
+            emit(FetchResult.Success(bodyResponse))
+
+        }catch (diskIO:Exception){
+            emit(FetchResult.Error(diskIO.message.toString()))
+        }
+    }
+
+    fun getLapById(id:String,tanggal: String):LiveData<FetchResult<GetLapByIdResponse>> = liveData {
+        emit(FetchResult.Loading)
+        try {
+            val bodyResponse = serviceApi.getLapById(id,tanggal)
             emit(FetchResult.Success(bodyResponse))
 
         }catch (diskIO:Exception){
