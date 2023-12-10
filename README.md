@@ -2,7 +2,7 @@
 
 ![Logo](https://github.com/anggaxvi/marga-jaya/blob/main/bannemarga.png?raw=true)
 
-#Fitur Aplikasi Penyewaan Lapangan Badminton MARGAJAYA
+# Fitur Aplikasi Penyewaan Lapangan Badminton MARGAJAYA
   - Login & Register
   - Home Page
   - History Page
