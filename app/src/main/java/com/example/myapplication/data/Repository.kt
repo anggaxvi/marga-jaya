@@ -4,10 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.myapplication.data.api.ServiceApi
 import com.example.myapplication.data.model.LoginModel
+import com.example.myapplication.data.model.PaymetModel
 import com.example.myapplication.data.model.RegisterModel
 import com.example.myapplication.data.response.GetLapByIdResponse
 import com.example.myapplication.data.response.GetLapResponse
+import com.example.myapplication.data.response.HistoryResponse
 import com.example.myapplication.data.response.LoginResponse
+import com.example.myapplication.data.response.PaymentResponse
 import com.example.myapplication.data.response.ProfileResponse
 import com.example.myapplication.data.response.RegisterResponse
 import kotlin.Exception
@@ -77,6 +80,34 @@ class Repository(private val serviceApi: ServiceApi) {
         emit(FetchResult.Loading)
         try {
             val bodyResponse = serviceApi.getLapById(id,tanggal)
+            emit(FetchResult.Success(bodyResponse))
+
+        }catch (diskIO:Exception){
+            emit(FetchResult.Error(diskIO.message.toString()))
+        }
+    }
+
+    fun payment(id_lapangan:String,tanggal: String):LiveData<FetchResult<PaymentResponse>> = liveData {
+        emit(FetchResult.Loading)
+        try {
+            val postModel = PaymetModel(
+                id_lapangan = id_lapangan,
+                tanggal = tanggal
+            )
+            val bodyResponse = serviceApi.payment(postModel)
+            emit(FetchResult.Success(bodyResponse))
+
+        }catch (diskIO:Exception){
+            emit(FetchResult.Error(diskIO.message.toString()))
+        }
+    }
+
+
+    fun getAllHistory():LiveData<FetchResult<HistoryResponse>> = liveData {
+        emit(FetchResult.Loading)
+        try {
+
+            val bodyResponse = serviceApi.getAllHistory()
             emit(FetchResult.Success(bodyResponse))
 
         }catch (diskIO:Exception){

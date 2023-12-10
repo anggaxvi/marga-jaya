@@ -204,7 +204,7 @@ class HomeFragment : Fragment() {
             override fun onItemClick(data: LapanganItem) {
                 val i = Intent(requireContext(), DetailActivity::class.java)
                 i.putExtra(DetailActivity.EXTRA_ID, data.id)
-                i.putExtra(DetailActivity.EXTRA_TGL, upDate)
+                i.putExtra(DetailActivity.EXTRA_TGL, pickerDate)
                 startActivity(i)
 
 

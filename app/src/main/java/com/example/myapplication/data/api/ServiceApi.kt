@@ -1,10 +1,13 @@
 package com.example.myapplication.data.api
 
 import com.example.myapplication.data.model.LoginModel
+import com.example.myapplication.data.model.PaymetModel
 import com.example.myapplication.data.model.RegisterModel
 import com.example.myapplication.data.response.GetLapByIdResponse
 import com.example.myapplication.data.response.GetLapResponse
+import com.example.myapplication.data.response.HistoryResponse
 import com.example.myapplication.data.response.LoginResponse
+import com.example.myapplication.data.response.PaymentResponse
 import com.example.myapplication.data.response.ProfileResponse
 import com.example.myapplication.data.response.RegisterResponse
 import retrofit2.http.Body
@@ -37,9 +40,20 @@ interface ServiceApi {
         @Query("tanggal") tanggal : String
     ):GetLapResponse
 
+
     @GET("lapangan/{id}")
     suspend fun getLapById(
         @Path("id") id : String,
         @Query("tanggal") tanggal: String
     ):GetLapByIdResponse
+
+
+    @POST("bookings")
+    suspend fun payment(
+        @Body postModel : PaymetModel
+    ):PaymentResponse
+
+    @GET("users/bookings")
+    suspend fun getAllHistory():HistoryResponse
+
 }

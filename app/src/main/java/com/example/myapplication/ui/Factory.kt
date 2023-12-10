@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.data.di.Injection
 import com.example.myapplication.ui.auth.LoginViewModel
 import com.example.myapplication.ui.auth.RegisterViewModel
-import com.example.myapplication.ui.detail.DatabaseViewModel
 import com.example.myapplication.ui.detail.DetailViewModel
 import com.example.myapplication.ui.home.HomeViewModel
+import com.example.myapplication.ui.hisrtori.HistoriViewModel
 import com.example.myapplication.ui.profile.ProfileViewModel
 
 class Factory(private val context: Context):ViewModelProvider.Factory {
@@ -30,6 +30,8 @@ class Factory(private val context: Context):ViewModelProvider.Factory {
         }else if (modelClass.isAssignableFrom(DetailViewModel::class.java)){
             return DetailViewModel(Injection.apiService(context)) as T
 
+        }else if (modelClass.isAssignableFrom(HistoriViewModel::class.java)){
+            return HistoriViewModel(Injection.apiService(context)) as T
         }
         throw IllegalArgumentException("Uknown ViewModel Class : ${modelClass.name}")
     }

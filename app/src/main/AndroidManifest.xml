@@ -16,12 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.bukti.BuktiActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -33,12 +36,15 @@
         <activity
             android:name=".ui.map.LocationActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true">
