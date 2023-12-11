@@ -13,5 +13,5 @@ Fitur Aplikasi Penyewaan Lapangan Badminton MARGAJAYA
   - Admin
   - -Integerate with API [MARGAJAYA](https://margajaya.vercel.app/lapangan)
 
-![uiuxmarga](https://github.com/anggaxvi/marga-jaya/assets/145025075/714c8f5a-8b46-4632-aafb-1c328c35b03d)
+![uiuxmarga](https://github.com/anggaxvi/marga-jaya/assets/145025075/fc98349b-246d-46d0-a522-67960e748350)
 
